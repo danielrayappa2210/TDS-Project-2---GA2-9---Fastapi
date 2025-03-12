@@ -14,7 +14,7 @@ app = FastAPI()
 async def get_students(class_id: list[str] = Query(None, alias="class")):
     headers = {}
     if ACCESS_TOKEN:
-        headers["Authorization"] = f"token {ACCESS_TOKEN}"}
+        headers["Authorization"] = f"token {ACCESS_TOKEN}"
     
     async with httpx.AsyncClient() as client:
         resp = await client.get(GITHUB_CSV_URL, headers=headers)
